@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: nomu
+      POSTGRES_PASSWORD: nomu
+      POSTGRES_DB: nomu
+    ports:
+      - "5432:5432"
+    volumes:
+      - nomu_pgdata:/var/lib/postgresql/data
+
+volumes:
+  nomu_pgdata:
