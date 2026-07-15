@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
+  <h1>Register</h1>
+
+  <label>
+    Name
+    <input type="text" formControlName="name"/>
+  </label>
+
+  <label>
+    Email
+    <input type="email" formControlName="email" />
+  </label>
+
+  <label>
+    Password
+    <input type="password" formControlName="password" />
+  </label>
+
+  <label>
+    I am a
+    <select formControlName="role">
+      <option value="customer">Customer</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="courier">Courier</option>
+    </select>
+  </label>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <button type="submit" [disabled]="form.invalid">Register</button>
+
+  <p>Already have an account? <a routerLink="/login">Log in</a></p>
+</form>
